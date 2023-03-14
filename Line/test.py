@@ -32,7 +32,7 @@ def send_GPA():
         send_message(GPA)
         send_message("表を生成してるよ！")
         my_tools.TablePlot_image(df, 20, 20, "GPA_table.jpg")
-        send_image("GPA_table.image", "成績だよ！")
+        send_image("GPA_table.jpg", "成績だよ！")
 # message = "raspberry piから送信してるよ！"
 
 send_GPA()
