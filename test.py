@@ -1,7 +1,7 @@
 import requests
 
-TOKEN = ""
-API = ''
+TOKEN = input("token:")
+API = 'https://notify-api.line.me/api/notify'
 
 message = "test"
 
