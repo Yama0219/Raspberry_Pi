@@ -132,7 +132,7 @@ def main():
     PASS = login_info[1].splitlines()
     img_ids = login_info[2].split()
 
-    driver = webdriver.Chrome(ChromeDriverManager().install())
+    driver = webdriver.Chrome(executable_path="/usr/lib/chromium-browser/chromedriver", options=chrome_option)
 
     # ログイン
     try:
