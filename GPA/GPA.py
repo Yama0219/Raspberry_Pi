@@ -4,7 +4,7 @@ from selenium.webdriver.common.alert import Alert
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome import service as fs
-from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
 import csv
 import time
 import os
@@ -122,6 +122,7 @@ def main():
         Path = Path[:Path.rfind("GPA")]
         f = open(os.path.join(Path, "GPA.csv"), "w", newline = "")
         writer = csv.writer(f)
+
         login_id = open(os.path.join(Path, "login_id.txt"), "r", encoding='UTF-8')
         login_info = login_id.readlines()
         ID = login_info[0].splitlines()
@@ -134,7 +135,8 @@ def main():
         chrome_option.add_argument('--disable-gpu')
         chrome_option.add_argument('--no-sandbox')
         chrome_option.add_argument('--disable-setuid-sandbox')
-        driver = webdriver.Chrome(executable_path=r"/usr/bin/chromedriver", options=chrome_option)
+ 
+        driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_option)
     except Exception as e:
         print(e)
         time.sleep(5)
