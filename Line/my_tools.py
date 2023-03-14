@@ -1,5 +1,5 @@
 from matplotlib import pyplot as plt
-
+import japanize_matplotlib
 def TablePlot(df,w,h,outputPath):
     fig, ax = plt.subplots(figsize=(w,h))
     ax.axis('off')
