@@ -30,9 +30,9 @@ def send_GPA():
         GPA = f.read()
         send_message("成績を送るよ！")
         send_message(GPA)
-        # my_tools.TablePlot_image(df, 20, 20, "GPA_table.jpg")
-        my_tools.TablePlot_html(df, "GPA_table.html")
-        send_image("GPA_table.html", "成績だよ！")
+        send_message("表を生成してるよ！")
+        my_tools.TablePlot_image(df, 20, 20, "GPA_table.jpg")
+        send_image("GPA_table.image", "成績だよ！")
 # message = "raspberry piから送信してるよ！"
 
 send_GPA()
