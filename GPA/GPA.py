@@ -130,7 +130,7 @@ def main():
 
         chrome_option = webdriver.ChromeOptions()
         # Headlessで実行したい場合はheadlessオプションをつける
-        #chrome_option.add_argument('--headless')
+        chrome_option.add_argument('--headless')
         chrome_option.add_argument('--disable-gpu')
         chrome_option.add_argument('--no-sandbox')
         chrome_option.add_argument('--disable-setuid-sandbox')
