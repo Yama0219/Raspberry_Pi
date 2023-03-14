@@ -12,6 +12,7 @@ import sys
 import subprocess
 
 
+
 def grade_to_point(grade):
     if grade == "ＡＡ":
         point = 4.0
