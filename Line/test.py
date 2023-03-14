@@ -15,15 +15,22 @@ def send_message(message):
     data = {'message': message}
     requests.post(API, headers = headers, data = data)
 
+def send_image(IMAGEPATH, message):
+    data = {'message': message}
+    headers = {'Authorization': 'Bearer ' + TOKEN}
+    files = {'imageFile': open(IMAGEPATH, "rb")} 　#バイナリファイルを開く
+    requests.post(API, data=data, headers=headers, files=files)
+
 
 def send_GPA():
     df = pd.read_csv("../GPA/GPA.csv", names = [str(i) for i in range(18)])
     print(df)
-    my_tools.TablePlot(df, 100, 100, "GPA_table.jpg")
+    my_tools.TablePlot(df, 10, 10, "GPA_table.jpg")
     with open("../GPA/GPA.csv", "r") as f:
         GPA = f.read()
         send_message("成績を送るよ！")
         send_message(GPA)
+        send_image("GPA_table.jpg", "成績だよ！")
 # message = "raspberry piから送信してるよ！"
 
 send_GPA()
