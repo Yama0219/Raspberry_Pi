@@ -31,7 +31,7 @@ def send_GPA():
         send_message("成績を送るよ！")
         send_message(GPA)
         send_message("表を生成してるよ！")
-        num = df[df.iloc[:, 3] == "総単位数"]
+        num = df[df.iloc[:, 3] == "総単位数"].index
         print(num)
         my_tools.TablePlot_image(df[num:, :], 10, 10, "GPA_table.jpg")
         send_image("GPA_table.jpg", "成績だよ！")
