@@ -136,7 +136,7 @@ def main():
         chrome_option.add_argument('--no-sandbox')
         chrome_option.add_argument('--disable-setuid-sandbox')
  
-        driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_option)
+        driver = webdriver.Chrome(executable_path=r"/usr/bin/chromedriver", options=chrome_option)
     except Exception as e:
         print(e)
         time.sleep(5)
