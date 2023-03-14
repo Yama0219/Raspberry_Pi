@@ -122,17 +122,24 @@ def main():
         Path = Path[:Path.rfind("GPA")]
         f = open(os.path.join(Path, "GPA.csv"), "w", newline = "")
         writer = csv.writer(f)
+        login_id = open(os.path.join(Path, "login_id.txt"), "r", encoding='UTF-8')
+        login_info = login_id.readlines()
+        ID = login_info[0].splitlines()
+        PASS = login_info[1].splitlines()
+        img_ids = login_info[2].split()
+
+        chrome_option = webdriver.ChromeOptions()
+        # Headlessで実行したい場合はheadlessオプションをつける
+        #chrome_option.add_argument('--headless')
+        chrome_option.add_argument('--disable-gpu')
+        chrome_option.add_argument('--no-sandbox')
+        chrome_option.add_argument('--disable-setuid-sandbox')
+        driver = webdriver.Chrome(executable_path="/usr/lib/chromium-browser/chromedriver", options=chrome_option)
     except Exception as e:
         print(e)
         time.sleep(5)
         sys.exit()
-    login_id = open(os.path.join(Path, "login_id.txt"), "r", encoding='UTF-8')
-    login_info = login_id.readlines()
-    ID = login_info[0].splitlines()
-    PASS = login_info[1].splitlines()
-    img_ids = login_info[2].split()
 
-    driver = webdriver.Chrome(executable_path="/usr/lib/chromium-browser/chromedriver")
 
     # ログイン
     try:
