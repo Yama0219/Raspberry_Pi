@@ -134,7 +134,7 @@ def main():
         chrome_option.add_argument('--disable-gpu')
         chrome_option.add_argument('--no-sandbox')
         chrome_option.add_argument('--disable-setuid-sandbox')
-        driver = webdriver.Chrome(executable_path="/usr/bin/chromium-browser/chromedriver", options=chrome_option)
+        driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver", options=chrome_option)
     except Exception as e:
         print(e)
         time.sleep(5)
