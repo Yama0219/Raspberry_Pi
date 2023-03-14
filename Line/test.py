@@ -19,7 +19,7 @@ def send_message(message):
 def send_GPA():
     df = pd.read_csv("../GPA/GPA.csv", names = [str(i) for i in range(18)])
     print(df)
-    my_tools.TablePlot(df, 1000, 1000, "GPA_table.jpg")
+    my_tools.TablePlot(df, 100, 100, "GPA_table.jpg")
     with open("../GPA/GPA.csv", "r") as f:
         GPA = f.read()
         send_message("成績を送るよ！")
