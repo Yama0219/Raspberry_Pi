@@ -1,4 +1,4 @@
-from matplotlb import pyplot as plt
+from matplotlib import pyplot as plt
 
 def TablePlot(df,w,h,outputPath):
     fig, ax = plt.subplots(figsize=(w,h))
