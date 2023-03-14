@@ -6,7 +6,10 @@ with open(r"token.txt", "r") as f:
 
 API = 'https://notify-api.line.me/api/notify'
 
-message = "raspberry piから送信してるよ！"
+with open("../GPA/GPA.csv", "r") as f:
+    message = f.read()
+
+# message = "raspberry piから送信してるよ！"
 
 headers = {'Authorization': 'Bearer ' + TOKEN}
 data = {'message': message}
