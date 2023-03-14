@@ -246,7 +246,5 @@ def main():
         login_id.close()
         print("driver closed")
 
-    subprocess.Popen(["start", os.path.join(Path, "GPA.csv")], shell = True)
-
 if __name__ == "__main__":
     main()
