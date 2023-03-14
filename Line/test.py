@@ -1,4 +1,7 @@
 import requests
+import pandas as pd
+from matplotlib import pyplot as plt
+import my_tools
 
 TOKEN = ""
 API = 'https://notify-api.line.me/api/notify'
@@ -12,10 +15,14 @@ def send_message(message):
     data = {'message': message}
     requests.post(API, headers = headers, data = data)
 
-with open("../GPA/GPA.csv", "r") as f:
-    GPA = f.read().split()
-    send_message("成績を送るよ！")
-    for message in GPA:
-        send_message(message)
+
+def send_GPA():
+    df = pd.read_csv("../GPA/GPA.csv")
+    my_tools.TablePlot(df, 1000, 1000, "GPA_table.jpg")
+    with open("../GPA/GPA.csv", "r") as f:
+        GPA = f.read()
+        send_message("成績を送るよ！")
+        send_message(GPA)
 # message = "raspberry piから送信してるよ！"
 
+send_GPA()
