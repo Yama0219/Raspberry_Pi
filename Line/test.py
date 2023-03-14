@@ -31,7 +31,7 @@ def send_GPA():
         send_message("成績を送るよ！")
         send_message(GPA)
         send_message("表を生成してるよ！")
-        my_tools.TablePlot_image(df, 20, 20, "GPA_table.jpg")
+        my_tools.TablePlot_image(df[df.index.get_loc["総単位数"]:], 10, 10, "GPA_table.jpg")
         send_image("GPA_table.jpg", "成績だよ！")
 # message = "raspberry piから送信してるよ！"
 
