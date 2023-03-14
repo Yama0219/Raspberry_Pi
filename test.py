@@ -6,7 +6,7 @@ with open(r"token.txt", "r") as f:
 
 API = 'https://notify-api.line.me/api/notify'
 
-message = "test"
+message = "raspberry piから送信してるよ！"
 
 headers = {'Authorization': 'Bearer ' + TOKEN}
 data = {'message': message}
