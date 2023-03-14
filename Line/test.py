@@ -18,7 +18,7 @@ def send_message(message):
 def send_image(IMAGEPATH, message):
     data = {'message': message}
     headers = {'Authorization': 'Bearer ' + TOKEN}
-    files = {'imageFile': open(IMAGEPATH, "rb")} 　#バイナリファイルを開く
+    files = {'imageFile': open(IMAGEPATH, "rb")} #バイナリファイルを開く
     requests.post(API, data=data, headers=headers, files=files)
 
 
