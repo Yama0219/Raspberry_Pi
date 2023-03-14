@@ -4,7 +4,7 @@ from selenium.webdriver.common.alert import Alert
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome import service as fs
-from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.options import Options
 import csv
 import time
 import os
@@ -134,7 +134,7 @@ def main():
         chrome_option.add_argument('--disable-gpu')
         chrome_option.add_argument('--no-sandbox')
         chrome_option.add_argument('--disable-setuid-sandbox')
-        driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver", options=chrome_option)
+        driver = webdriver.Chrome(executable_path=r"/usr/bin/chromedriver", options=chrome_option)
     except Exception as e:
         print(e)
         time.sleep(5)
