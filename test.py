@@ -2,7 +2,7 @@ import requests
 
 TOKEN = ""
 with open(r"token.txt", "r") as f:
-    TOKEN = f.read()
+    TOKEN = f.read().splitlines()
 
 API = 'https://notify-api.line.me/api/notify'
 
