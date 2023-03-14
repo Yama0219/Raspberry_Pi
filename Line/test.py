@@ -25,12 +25,14 @@ def send_image(IMAGEPATH, message):
 def send_GPA():
     df = pd.read_csv("../GPA/GPA.csv", names = [str(i) for i in range(18)])
     print(df)
-    my_tools.TablePlot(df, 10, 10, "GPA_table.jpg")
+    
     with open("../GPA/GPA.csv", "r") as f:
         GPA = f.read()
         send_message("成績を送るよ！")
         send_message(GPA)
-        send_image("GPA_table.jpg", "成績だよ！")
+        # my_tools.TablePlot_image(df, 20, 20, "GPA_table.jpg")
+        my_tools.TablePlot_html(df, "GPA_table.html")
+        send_image("GPA_table.html", "成績だよ！")
 # message = "raspberry piから送信してるよ！"
 
 send_GPA()
