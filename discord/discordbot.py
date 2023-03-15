@@ -38,7 +38,7 @@ async def on_message(message):
     if message.content == "/updateGPA":
         await message.channel.send('成績表を更新するよ')
         await message.channel.send(file=discord.File("../GPA/GPA.csv"))
-        res = subprocess.run("python /home/kenke/Desktop/myfolder/Raspberry_Pi/GPA/GPA.@py", stdout=subprocess.PIPE, shell=True, encoding="shift-jis")
+        res = subprocess.run("python /home/kenke/Desktop/myfolder/Raspberry_Pi/GPA/GPA.py", stdout=subprocess.PIPE, shell=True, encoding="shift-jis")
         await message.channel.send(res)
 # Botの起動とDiscordサーバーへの接続
 client.run(token=TOKEN)
