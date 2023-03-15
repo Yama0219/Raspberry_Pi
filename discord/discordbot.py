@@ -7,7 +7,7 @@ import sys
 sys.path.append(os.pardir)
 TOKEN = ""
 
-import GPA
+from GPA import GPA
 
 with open("token.txt", "r") as f:
     TOKEN = f.read().replace("\n", "")
@@ -37,6 +37,6 @@ async def on_message(message):
     if message.content == "/updateGPA":
         await message.channel.send('成績表を更新するよ')
         await message.channel.send(file=discord.File("../GPA/GPA.csv"))
-        GPA.GPA.main()
+        GPA.main()
 # Botの起動とDiscordサーバーへの接続
 client.run(token=TOKEN)
