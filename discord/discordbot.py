@@ -2,7 +2,7 @@ import discord
 from discord import Intents
 import pandas as pd
 from matplotlib import pyplot as plt
-import japanize-matplotlib
+import japanize_matplotlib
 
 TOKEN = ""
 with open("token.txt", "r") as f:
