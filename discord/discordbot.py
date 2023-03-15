@@ -34,7 +34,8 @@ async def on_message(message):
             with open("../GPA/GPA.csv", "r") as f:
                 GPA = f.read()
                 await message.channel.send('成績表を送るよ！')
-                await message.channel.send(GPA)
+                for txt in GPA:
+                    await message.channel.send(txt)
 
 
 # Botの起動とDiscordサーバーへの接続
