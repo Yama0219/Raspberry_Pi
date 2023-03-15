@@ -26,7 +26,7 @@ async def on_message(message):
         return
 
     if message.content == '/hello':
-        await message.channel.send('やあ，{}さん'.format(message.user))
+        await message.channel.send('やあ，{}さん'.format(message.author))
 
     if message.content == '/neko':
         await message.channel.send('にゃーん')
