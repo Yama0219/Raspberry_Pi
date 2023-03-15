@@ -35,5 +35,10 @@ async def on_message(message):
         await message.channel.send('see you')
         await client.close()
 
+    if message.content == "/logout":
+        await message.channel.send('see you')
+        await client.logout()
+        print(1+1)
+        await client.login(TOKEN)
 # Botの起動とDiscordサーバーへの接続
 client.run(token=TOKEN)
