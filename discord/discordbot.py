@@ -4,7 +4,7 @@ TOKEN = ""
 with open("token.txt", "r") as f:
     TOKEN = f.read().replace("\n", "")
 
-client = discord.client()
+client = discord.Client()
 
 @client.event
 async def on_ready():
