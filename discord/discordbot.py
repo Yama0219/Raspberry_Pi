@@ -7,7 +7,7 @@ with open("token.txt", "r") as f:
 
 intents = discord.Intents.default()
 intents.members = True
-intents.messages = True
+intents.message_contents = True
 client = discord.Client(intents=intents)
 
 @client.event
