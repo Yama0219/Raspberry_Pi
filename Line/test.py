@@ -24,13 +24,13 @@ def send_image(IMAGEPATH, message):
 
 def send_GPA():
     df = pd.read_csv("../GPA/GPA.csv", names = [str(i) for i in range(18)])
+    df.fillna("")
     print(df)
     
     with open("../GPA/GPA.csv", "r") as f:
         GPA = f.read()
         send_message("成績を送るよ！")
         send_message(GPA)
-        send_message("表を生成してるよ！")
         num = df[df.iloc[:, 3] == "総単位数"].index[0]
         print(num)
         my_tools.TablePlot_image(df.iloc[num:, :], 15, int(len(df.iloc[num:, :])/2), "GPA_table.jpg")
