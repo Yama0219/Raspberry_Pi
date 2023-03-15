@@ -7,7 +7,7 @@ with open("token.txt", "r") as f:
 
 intents = discord.Intents.default()
 intents.members = True
-client = discord.client(intents=intents)
+client = discord.Client(intents=intents)
 
 @client.event
 async def on_ready():
@@ -25,4 +25,4 @@ async def on_message(message):
         await message.channel.send('にゃーん')
 
 # Botの起動とDiscordサーバーへの接続
-client.run(TOKEN)
+client.run(token=TOKEN)
