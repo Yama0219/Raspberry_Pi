@@ -34,7 +34,7 @@ async def on_message(message):
     
     if message.content == "/updateGPA":
         await message.channel.send('成績表を更新するよ')
-        await subprocess.Popen("python /home/kenke/Desktop/myfolder/Raspberry_Pi/GPA/GPA.py")
+        await subprocess.Popen("python /home/kenke/Desktop/myfolder/Raspberry_Pi/GPA/GPA.py".split())
 
     if message.content == "/stop":
         await message.channel.send('see you')
