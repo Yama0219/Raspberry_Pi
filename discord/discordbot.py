@@ -1,8 +1,7 @@
 import discord
 from discord import Intents
 import pandas as pd
-from matplotlib import pyplot as plt
-import japanize_matplotlib
+import GPA
 
 TOKEN = ""
 with open("token.txt", "r") as f:
@@ -26,9 +25,14 @@ async def on_message(message):
     if message.content == '/neko':
         await message.channel.send('にゃーん')
 
-    if message.content == "/成績表":
+    if message.content == "/GPA":
+        await message.channel.send('成績表を送信するよ')
         await message.channel.send(file=discord.File("../GPA/GPA.csv"))
 
+    if message.content == "/updateGPA":
+        await message.channel.send('成績表を更新するよ')
+        await message.channel.send(file=discord.File("../GPA/GPA.csv"))
+        GPA.main()
 
 # Botの起動とDiscordサーバーへの接続
 client.run(token=TOKEN)
