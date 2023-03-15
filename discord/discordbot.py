@@ -1,5 +1,8 @@
 import discord
 from discord import Intents
+import pandas as pd
+from matplotlib import pyplot as plt
+import japanize-matplotlib
 
 TOKEN = ""
 with open("token.txt", "r") as f:
@@ -22,6 +25,17 @@ async def on_message(message):
     # 「/neko」と発言したら「にゃーん」が返る処理
     if message.content == '/neko':
         await message.channel.send('にゃーん')
+
+    if message.content == "/成績表":
+            df = pd.read_csv("../GPA/GPA.csv", names = [str(i) for i in range(18)])
+            df.fillna("")
+            print(df)
+            
+            with open("../GPA/GPA.csv", "r") as f:
+                GPA = f.read()
+                await message.channel.send('成績表を送るよ！')
+                await message.channel.send(GPA)
+
 
 # Botの起動とDiscordサーバーへの接続
 client.run(token=TOKEN)
