@@ -34,7 +34,7 @@ async def on_message(message):
     
     if message.content == "/updateGPA":
         await message.channel.send('成績表を更新するよ')
-        subprocess.Popen("python /home/kenke/Desktop/myfolder/Raspberry_Pi/GPA/GPA.py".split())
+        await subprocess.call("python /home/kenke/Desktop/myfolder/Raspberry_Pi/GPA/GPA.py".split())
         await message.channel.send('成績表を更新したよ')
         await message.channel.send(file=discord.File("../GPA/GPA.csv"))
 
@@ -45,7 +45,6 @@ async def on_message(message):
     if message.content == "/logout":
         await message.channel.send('see you')
         await client.logout()
-        print(1+1)
         await client.login(TOKEN)
 # Botの起動とDiscordサーバーへの接続
 client.run(token=TOKEN)
