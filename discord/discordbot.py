@@ -1,9 +1,14 @@
 import discord
 from discord import Intents
 import pandas as pd
-import subprocess
+import os
+import sys
 
+sys.path.append(os.pardir)
 TOKEN = ""
+
+import GPA
+
 with open("token.txt", "r") as f:
     TOKEN = f.read().replace("\n", "")
 
@@ -32,7 +37,6 @@ async def on_message(message):
     if message.content == "/updateGPA":
         await message.channel.send('成績表を更新するよ')
         await message.channel.send(file=discord.File("../GPA/GPA.csv"))
-        subprocess.run([r"/home/kenke/Desktop/myfolder/Raspberry_Pi/GPA/GPA.py"])
-
+        GPA.main()
 # Botの起動とDiscordサーバーへの接続
 client.run(token=TOKEN)
