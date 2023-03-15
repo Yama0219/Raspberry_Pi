@@ -33,10 +33,8 @@ async def on_message(message):
         await message.channel.send(file=discord.File("../GPA/GPA.csv"))
     
     if message.content == "/updateGPA":
-        await message.channel.send('成績表を更新するよ')
-        await subprocess.call("python /home/kenke/Desktop/myfolder/Raspberry_Pi/GPA/GPA.py".split())
-        await message.channel.send('成績表を更新したよ')
-        await message.channel.send(file=discord.File("../GPA/GPA.csv"))
+        await message.channel.send('成績表を更新するよ．しばらく待ってね')
+        subprocess.Popen("python /home/kenke/Desktop/myfolder/Raspberry_Pi/GPA/GPA.py".split())
 
     if message.content == "/stop":
         await message.channel.send('see you')
@@ -44,7 +42,8 @@ async def on_message(message):
 
     if message.content == "/logout":
         await message.channel.send('see you')
-        await client.logout()
-        await client.login(TOKEN)
+        await client.close()
+
+
 # Botの起動とDiscordサーバーへの接続
 client.run(token=TOKEN)
