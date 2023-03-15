@@ -3,6 +3,7 @@ from discord import Intents
 import pandas as pd
 import os
 import sys
+import subprocess
 
 TOKEN = ""
 
@@ -30,6 +31,10 @@ async def on_message(message):
     if message.content == "/GPA":
         await message.channel.send('成績表を送信するよ')
         await message.channel.send(file=discord.File("../GPA/GPA.csv"))
+    
+    if message.content == "/updateGPA":
+        await message.channel.send('成績表を更新するよ')
+        await subprocess.Popen("python /home/kenke/Desktop/myfolder/Raspberry_Pi/GPA/GPA.py")
 
     if message.content == "/stop":
         await message.channel.send('see you')
