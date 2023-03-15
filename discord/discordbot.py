@@ -37,6 +37,6 @@ async def on_message(message):
     if message.content == "/updateGPA":
         await message.channel.send('成績表を更新するよ')
         await message.channel.send(file=discord.File("../GPA/GPA.csv"))
-        GPA.main()
+        GPA.GPA.main()
 # Botの起動とDiscordサーバーへの接続
 client.run(token=TOKEN)
