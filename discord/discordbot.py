@@ -27,7 +27,7 @@ async def on_message(message):
         await message.channel.send('にゃーん')
 
     if message.content == "/成績表":
-        await message.channel.send("../GPA/GPA.csv")
+        await message.channel.send(file=discord.File("../GPA/GPA.csv"))
 
 
 # Botの起動とDiscordサーバーへの接続
