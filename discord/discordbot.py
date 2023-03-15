@@ -5,8 +5,8 @@ TOKEN = ""
 with open("token.txt", "r") as f:
     TOKEN = f.read().replace("\n", "")
 
-intents = discord.Intents.default()
-intents.members = True
+intents =discord.Intents.all()
+
 client = discord.Client(intents=intents)
 
 @client.event
