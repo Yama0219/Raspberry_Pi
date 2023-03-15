@@ -31,6 +31,9 @@ async def on_message(message):
         await message.channel.send('成績表を送信するよ')
         await message.channel.send(file=discord.File("../GPA/GPA.csv"))
 
+    if message.content == "/stop":
+        await message.channel.send('see you')
+        await client.close()
 
 # Botの起動とDiscordサーバーへの接続
 client.run(token=TOKEN)
