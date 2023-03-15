@@ -4,9 +4,8 @@ from discord import Intents
 TOKEN = ""
 with open("token.txt", "r") as f:
     TOKEN = f.read().replace("\n", "")
-intents = discord.Intents.default()
-intents.members = True
-client = discord.Client(intents = intents)
+
+client = discord.Client()
 
 @client.event
 async def on_ready():
