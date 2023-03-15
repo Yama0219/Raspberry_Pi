@@ -27,15 +27,7 @@ async def on_message(message):
         await message.channel.send('にゃーん')
 
     if message.content == "/成績表":
-            df = pd.read_csv("../GPA/GPA.csv", names = [str(i) for i in range(18)])
-            df.fillna("")
-            print(df)
-            
-            with open("../GPA/GPA.csv", "r") as f:
-                GPA = f.read()
-                await message.channel.send('成績表を送るよ！')
-                for txt in GPA:
-                    await message.channel.send(txt)
+        await message.channel.send("../GPA/GPA.csv")
 
 
 # Botの起動とDiscordサーバーへの接続
