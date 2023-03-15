@@ -1,7 +1,7 @@
 import discord
 from discord import Intents
 import pandas as pd
-from . import GPA
+from .GPA import GPA
 
 TOKEN = ""
 with open("token.txt", "r") as f:
