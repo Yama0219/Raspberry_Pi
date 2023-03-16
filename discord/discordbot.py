@@ -18,7 +18,7 @@ async def on_ready():
     # 起動したらターミナルにログイン通知が表示される
     print('ログインしました')
     for channel in client.get_all_channels():
-        if channel.name == "bot-notification":
+        if channel.name == "general":
             await channel.send("起動しました")
 
 # メッセージ受信時に動作する処理
