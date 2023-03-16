@@ -17,7 +17,7 @@ client = discord.Client(intents=intents)
 async def on_ready():
     # 起動したらターミナルにログイン通知が表示される
     print('ログインしました')
-    for channel in client.get_att_channels():
+    for channel in client.get_all_channels():
         if channel.name == "bot-notification":
             await channel.send("起動しました")
 
