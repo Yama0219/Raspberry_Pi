@@ -36,7 +36,7 @@ async def on_message(message):
         if message.content.startswith("/command"):
             command = message.content.split()[1:]
             await message.channel.send(f"{' '.join(command)}を実行するよ")
-            output = subprocess.Popen(command)
+            output = subprocess.Popen(command, stdout=subprocess.PIPE)
             await message.channel.send(output.communicate())
 
     if message.content == '/hello':
