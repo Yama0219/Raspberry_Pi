@@ -27,6 +27,15 @@ async def on_message(message):
     # メッセージ送信者がBotだった場合は無視する
     if message.author.bot:
         return
+    
+    if message.author.guild_permissions.administrator:
+        if message.content == "/stop":
+            await message.channel.send('see you')
+            await client.close()
+
+        if message.content.startwith("/command"):
+            command = message.content.split()[1:]
+            await message.channel.send(command)
 
     if message.content == '/hello':
         await message.channel.send('やあ，{}さん'.format(message.author))
@@ -43,13 +52,9 @@ async def on_message(message):
         await message.channel.send('成績表を更新するよ．しばらく待ってね')
         subprocess.Popen("python /home/kenke/Desktop/myfolder/Raspberry_Pi/GPA/GPA.py".split())
 
-    if message.content == "/stop":
-        await message.channel.send('see you')
-        await client.close()
 
-    if message.content == "/logout":
-        await message.channel.send('see you')
-        await client.close()
+
+
 
 
 # Botの起動とDiscordサーバーへの接続
