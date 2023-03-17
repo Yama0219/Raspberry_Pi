@@ -33,7 +33,7 @@ async def on_message(message):
             await message.channel.send('see you')
             await client.close()
 
-        if message.content.startwith("/command"):
+        if message.content.startswith("/command"):
             command = message.content.split()[1:]
             await message.channel.send(command)
 
