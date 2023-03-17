@@ -39,7 +39,7 @@ async def on_message(message):
 
             if "sudo shutdown" in message.content:
                 await message.channel.send("see you")
-                client.close()
+                client.logout()
             
             output = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             await message.channel.send(output.communicate())
