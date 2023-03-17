@@ -41,7 +41,7 @@ async def on_message(message):
                 await message.channel.send("シャットダウンはできません")
             else:   
                 output = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-                await message.channel.send(output.communicate()[0].decode())
+                await message.channel.send(output.communicate()[:-1].decode())
 
     if message.content == '/hello':
         await message.channel.send('やあ，{}さん'.format(message.author.mention))
@@ -56,8 +56,8 @@ async def on_message(message):
     
     if message.content == "/updateGPA":
         await message.channel.send('成績表を更新するよ．しばらく待ってね')
-        subprocess.Popen("python /home/kenke/Desktop/myfolder/Raspberry_Pi/GPA/GPA.py".split())
-
+        output = subprocess.Popen("python /home/kenke/Desktop/myfolder/Raspberry_Pi/GPA/GPA.py".split())
+        await message.channel.send(output.communicate()[:-1].decode())
 
 
 
