@@ -41,7 +41,7 @@ async def on_message(message):
                 await message.channel.send("シャットダウンはできません")
             else:   
                 output = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-                await message.channel.send(output.communicate())
+                await message.channel.send(output.communicate().decode())
 
     if message.content == '/hello':
         await message.channel.send('やあ，{}さん'.format(message.author.mention))
