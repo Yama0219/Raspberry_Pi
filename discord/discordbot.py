@@ -37,12 +37,11 @@ async def on_message(message):
             command = message.content.split()[1:]
             await message.channel.send(f"{' '.join(command)}を実行するよ")
 
-            if "sudo shutdown" in message.content:
-                await message.channel.send("see you")
-                client.logout()
-            
-            output = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            await message.channel.send(output.communicate())
+            if "shutdown" in message.content:
+                await message.channel.send("シャットダウンはできません")
+            else:   
+                output = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                await message.channel.send(output.communicate())
 
     if message.content == '/hello':
         await message.channel.send('やあ，{}さん'.format(message.author.mention))
