@@ -9,7 +9,7 @@ import json
 
 url = r"https://playground-gkh7524.slack.com/archives/D04UBP43RPZ"
 
-with open(r"C:\Users\kenke\Desktop\programming\python\slack\token.txt", "r") as f:
+with open(r"token.txt", "r") as f:
     txt = f.read().split()
     bottoken = txt[0]
     apptoken = txt[1]
