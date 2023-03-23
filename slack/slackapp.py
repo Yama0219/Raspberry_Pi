@@ -174,5 +174,4 @@ def action_alarm_confirm(body, ack, say):
 # アプリを起動します
 if __name__ == "__main__":
     handler = SocketModeHandler(app, apptoken)
-    print(handler)
     handler.start()
