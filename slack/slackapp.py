@@ -150,7 +150,7 @@ def action_alarm_confirm(body, ack, say):
         res = app.client.chat_postMessage(channel=parent_message_channel, thread_ts=parent_message_ts, 
                                     text="<@{}> {:02d}:{:02d}に確認されました！".format(body['user']['id'], datetime.datetime.now().hour, datetime.datetime.now().minute))
         app.client.reactions_add(channel=parent_message_channel, timestamp=res["ts"], name="eyes")
-        app.client.reactions_add(channel=parent_message_channel, timestamp=parent_message_ts, name="クラッカー")
+        app.client.reactions_add(channel=parent_message_channel, timestamp=parent_message_ts, name="tada")
     else:
         app.client.chat_postMessage(channel=parent_message_channel, thread_ts=parent_message_ts, text="<@{}> に向けたメッセージだよ！".format(body['user']['id']))
 
