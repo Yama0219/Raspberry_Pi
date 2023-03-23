@@ -26,19 +26,19 @@ def get_dm_id(user_id):
 
 @app.event("reaction_added")
 def handle_reaction_added_events(event):
+    print(event)
     print(get_dm_id(event["user"]))
-    res = app.client.chat_postMessage(channel=get_dm_id(event["user"]), text="今リアクションしましたね！？")
+    res = app.client.chat_postMessage(channel=get_dm_id(event["user"]), text="リアクションしてくれた！")
     
 @app.event("reaction_removed")
 def handle_reaction_removed_events(event):
-        res = app.client.chat_postMessage(channel=get_dm_id(event["user"]), text="なんでリアクション外すの？")
+        res = app.client.chat_postMessage(channel=get_dm_id(event["user"]), text="リアクション外されちゃった")
 
 
 @app.message("alarm")
 def message_hello(message, say):
     # イベントがトリガーされたチャンネルへ say() でメッセージを送信します
     tomorrow = datetime.datetime.timestamp(datetime.datetime.strptime((datetime.datetime.today() + datetime.timedelta(days=1)).strftime("%Y-%m-%d") + " 7:00:00", '%Y-%m-%d %H:%M:%S'))
-    print(message)
     say(text="時間を入力してね", 
 	blocks = [
 		{
@@ -149,7 +149,6 @@ def action_alarm_confirm(body, ack, say):
     if (for_who == who_clicked):
         res = app.client.chat_postMessage(channel=parent_message_channel, thread_ts=parent_message_ts, 
                                     text="<@{}> {:02d}:{:02d}に確認されました！".format(body['user']['id'], datetime.datetime.now().hour, datetime.datetime.now().minute))
-        print(res)
         app.client.reactions_add(channel=parent_message_channel, timestamp=res["ts"], name="eyes")
     else:
         app.client.chat_postMessage(channel=parent_message_channel, thread_ts=parent_message_ts, text="<@{}> に向けたメッセージだよ！".format(body['user']['id']))
@@ -159,11 +158,8 @@ def action_alarm_confirm(body, ack, say):
     # アクションを確認したことを即時で応答します
     ack()
     text=body["message"]["text"]
-    print(body)
     data=json.loads("{"+text+"}")
-    print(data)
     print(app.client.chat_scheduledMessages_list())
-    
     try:
         res = app.client.chat_deleteScheduledMessage(channel=data["channel"], scheduled_message_id=data["scheduled_message_id"], as_user=True)
         app.client.chat_postMessage(channel=data["channel"], thread_ts=body["message"]["thread_ts"], text=f"<@{body['user']['id']}>取り消しました")
